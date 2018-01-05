@@ -15,6 +15,7 @@ namespace WebScraper1
             //options.AddArguments("--disable-gpu");
 
             var chromeDriver = new ChromeDriver();
+            chromeDriver.Navigate().GoToUrl("https://reddit.com");
         }
     }
 }
