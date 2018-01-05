@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Chrome;
 
 namespace WebScraper1
 {
@@ -10,6 +11,10 @@ namespace WebScraper1
     {
         static void Main(string[] args)
         {
+            var options = new ChromeOptions();
+            //options.AddArguments("--disable-gpu");
+
+            var chromeDriver = new ChromeDriver();
         }
     }
 }
