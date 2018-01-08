@@ -23,14 +23,14 @@ namespace WebScraper1
             //Console.WriteLine(test);
 
             // Find article titles
-            var titles = chromeDriver.FindElementsByTagName("a");
+            var titles = chromeDriver.FindElementsByClassName("title");
 
             // Find article descriptions
             var descriptions = chromeDriver.FindElementsByClassName("desc");
 
             // Count total articles
             var totalTitles = titles.Count;
-            Console.WriteLine("There are " + totalTitles + " titles in total");
+            Console.WriteLine("There are " + totalTitles + " article titles in total");
 
             // Count total descriptions
             var totalDescriptions = descriptions.Count;
