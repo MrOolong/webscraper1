@@ -16,7 +16,20 @@ namespace WebScraper1
             //options.AddArguments("--disable-gpu");
 
             var chromeDriver = new ChromeDriver();
-            chromeDriver.Navigate().GoToUrl("https://reddit.com");
+            chromeDriver.Navigate().GoToUrl("https://progressivegrocer.com");
+
+            //var listOfTitles = new List<string>();
+
+            //var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
+
+            //Console.WriteLine(test);
+
+            var titles = chromeDriver.FindElementsByTagName("h3");
+
+            foreach (var title in titles)
+            {
+                Console.WriteLine(title.Text);
+            }
         }
     }
 }
