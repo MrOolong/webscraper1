@@ -24,7 +24,7 @@ namespace WebScraper1
 
             //Console.WriteLine(test);
 
-            var titles = chromeDriver.FindElementsByTagName("h3");
+            var titles = chromeDriver.FindElementsByClassName("title");
 
             foreach (var title in titles)
             {
