@@ -19,16 +19,39 @@ namespace WebScraper1
             chromeDriver.Navigate().GoToUrl("https://progressivegrocer.com");
 
             //var listOfTitles = new List<string>();
-
             //var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
-
             //Console.WriteLine(test);
 
-            var titles = chromeDriver.FindElementsByClassName("title");
+            // Find article titles
+            var titles = chromeDriver.FindElementsByTagName("a");
 
+            // Find article descriptions
+            var descriptions = chromeDriver.FindElementsByClassName("desc");
+
+            // Count total articles
+            var totalTitles = titles.Count;
+            Console.WriteLine("There are " + totalTitles + " titles in total");
+
+            // Count total descriptions
+            var totalDescriptions = descriptions.Count;
+            Console.WriteLine("There are " + totalDescriptions + " descriptions in total");
+            Console.WriteLine();
+            Console.ReadLine();
+
+            // Print each title found
             foreach (var title in titles)
             {
                 Console.WriteLine(title.Text);
+                //Console.ReadLine();
+                //for (totalDescriptions = 0; totalDescriptions <= totalTitles; totalDescriptions++)
+                //{
+                //    Console.WriteLine(descriptions);
+                //}
+                //Console.WriteLine(descText);
+                //foreach (var desc in descriptions)
+                //{
+                //    Console.WriteLine(descriptions.First());
+                //}
             }
         }
     }
