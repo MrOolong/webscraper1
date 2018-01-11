@@ -42,6 +42,7 @@ namespace WebScraper1
             foreach (var title in titles)
             {
                 Console.WriteLine(title.Text);
+                //Console.WriteLine(descriptions.Text);
                 //Console.ReadLine();
                 //for (totalDescriptions = 0; totalDescriptions <= totalTitles; totalDescriptions++)
                 //{
