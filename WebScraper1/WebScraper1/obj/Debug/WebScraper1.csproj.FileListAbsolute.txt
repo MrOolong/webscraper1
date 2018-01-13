@@ -7,3 +7,7 @@ C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\obj\Debug\WebScraper
 C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\obj\Debug\WebScraper1.csproj.CoreCompileInputs.cache
 C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\obj\Debug\WebScraper1.exe
 C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\obj\Debug\WebScraper1.pdb
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.dll
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.xml
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.SqlServer.xml

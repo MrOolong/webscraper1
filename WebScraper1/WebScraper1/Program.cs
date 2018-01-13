@@ -16,7 +16,7 @@ namespace WebScraper1
             //options.AddArguments("--disable-gpu");
 
             var chromeDriver = new ChromeDriver();
-            chromeDriver.Navigate().GoToUrl("https://progressivegrocer.com");
+            chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
 
             //var listOfTitles = new List<string>();
             //var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
@@ -36,6 +36,7 @@ namespace WebScraper1
             var totalDescriptions = descriptions.Count;
             Console.WriteLine("There are " + totalDescriptions + " descriptions in total");
             Console.WriteLine();
+            Console.WriteLine("Please hit enter to see all article titles");
             Console.ReadLine();
 
             // Print each title found
