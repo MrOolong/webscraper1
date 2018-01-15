@@ -33,8 +33,8 @@ namespace WebScraper1
             Console.WriteLine("There are " + totalTitles + " article titles in total");
 
             // Count total descriptions
-            var totalDescriptions = descriptions.Count;
-            Console.WriteLine("There are " + totalDescriptions + " descriptions in total");
+            //var totalDescriptions = descriptions.Count;
+            //Console.WriteLine("There are " + totalDescriptions + " descriptions in total");
             Console.WriteLine();
             Console.WriteLine("Please hit enter to see all article titles");
             Console.ReadLine();
