@@ -15,6 +15,7 @@ namespace WebScraper1
             var options = new ChromeOptions();
             //options.AddArguments("--disable-gpu");
 
+            // open chrome and provide destination address
             var chromeDriver = new ChromeDriver();
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
 
