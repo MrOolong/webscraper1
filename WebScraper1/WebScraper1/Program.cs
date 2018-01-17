@@ -17,7 +17,10 @@ namespace WebScraper1
 
             // open chrome and provide destination address
             var chromeDriver = new ChromeDriver();
+            //Console.WriteLine("Please enter the address you'd like to see articles for");
+            //var takeWebAddress = Console.ReadLine();
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
+            //chromeDriver.Navigate().GoToUrl(takeWebAddress);
 
             //var listOfTitles = new List<string>();
             //var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
