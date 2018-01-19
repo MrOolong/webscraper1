@@ -17,13 +17,10 @@ namespace WebScraper1
 
             // open chrome and provide destination address
             var chromeDriver = new ChromeDriver();
-            //Console.WriteLine("Please enter the address you'd like to see articles for");
-            //var takeWebAddress = Console.ReadLine();
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
-            //chromeDriver.Navigate().GoToUrl(takeWebAddress);
 
-            //var listOfTitles = new List<string>();
-            //var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
+
+            //  var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
             //Console.WriteLine(test);
 
             // Find article titles
@@ -33,12 +30,10 @@ namespace WebScraper1
             var descriptions = chromeDriver.FindElementsByClassName("desc");
 
             // Count total articles
+            Console.WriteLine();
             var totalTitles = titles.Count;
             Console.WriteLine("There are " + totalTitles + " article titles in total");
 
-            // Count total descriptions
-            //var totalDescriptions = descriptions.Count;
-            //Console.WriteLine("There are " + totalDescriptions + " descriptions in total");
             Console.WriteLine();
             Console.WriteLine("Please hit enter to see all article titles");
             Console.ReadLine();
