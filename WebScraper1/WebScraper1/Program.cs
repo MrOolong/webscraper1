@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Data.Entity;
 
 namespace WebScraper1
 {
@@ -26,9 +27,6 @@ namespace WebScraper1
             // Find article titles
             var titles = chromeDriver.FindElementsByClassName("title");
 
-            // Find article descriptions
-            var descriptions = chromeDriver.FindElementsByClassName("desc");
-
             // Count total articles
             Console.WriteLine();
             var totalTitles = titles.Count;
@@ -46,5 +44,7 @@ namespace WebScraper1
 
             chromeDriver.Quit();
         }
+
+
     }
 }
