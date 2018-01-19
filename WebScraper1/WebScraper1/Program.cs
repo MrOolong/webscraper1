@@ -45,6 +45,17 @@ namespace WebScraper1
             chromeDriver.Quit();
         }
 
+        public class ArticleDB
+        {
+            public ArticleDB()
+            {
 
+            }
+
+            public int ArticleID { get; set; }
+            public string ArticleTitle { get; set; }
+            public string Source { get; set; }
+            public string Url { get; set; }
+        }
     }
 }
