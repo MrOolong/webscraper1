@@ -21,9 +21,6 @@ namespace WebScraper1
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
 
 
-            //  var test = chromeDriver.FindElementByXPath("//*[@id='block - homepageprimaryarticles']/div/div[1]/div/div[2]/a/h3").ToString();
-            //Console.WriteLine(test);
-
             // Find article titles
             var titles = chromeDriver.FindElementsByClassName("title");
 
@@ -43,6 +40,8 @@ namespace WebScraper1
             }
 
             chromeDriver.Quit();
+
+            ArticleDB DB1 = new ArticleDB();
         }
 
         public class ArticleDB
@@ -57,5 +56,18 @@ namespace WebScraper1
             public string Source { get; set; }
             public string Url { get; set; }
         }
+
+        //public class WebScraper
+        //{
+        //    public WebScraper()
+        //    {
+
+        //    }
+
+        //    public void ScrapeMethod()
+        //    {
+
+        //    }
+        //}
     }
 }
