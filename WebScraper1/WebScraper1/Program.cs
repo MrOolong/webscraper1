@@ -34,11 +34,15 @@ namespace WebScraper_Classes
             Console.WriteLine("Please hit enter to see all article titles");
             Console.ReadLine();
 
+            List<ArticleDB> articleList = new List<ArticleDB>();
+
             // Print each title found
             foreach (var title in titles)
             {
+                articleList.Add(new ArticleDB { ArticleTitle = title.Text});
                 Console.WriteLine(title.Text);
             }
+
 
             //var urlFinder = chromeDriver.FindElementsByXPath("//*[@class='category']//*[@href]");
             //*[@id="block-homepageprimaryarticles"]/div/div[1]/div/div[2]/a
@@ -55,10 +59,19 @@ namespace WebScraper_Classes
            using (var ctx = new ArticleDBContext())
             {
                 ArticleDB article = new ArticleDB()
-                { ArticleTitle = "Amazon buys WholeFoods" };
+                {
+                };
 
-                ctx.ArticleDBs.Add(article);
+                foreach (var i in articleList)
+                {
+
+                    ctx.ArticleDBs.Add(i);
+                };
+
                 ctx.SaveChanges();
+            }
+
+
             }
         }
 
@@ -103,5 +116,6 @@ namespace WebScraper_Classes
 
         //    }
         //}
-    }
-}
+ }
+
+
