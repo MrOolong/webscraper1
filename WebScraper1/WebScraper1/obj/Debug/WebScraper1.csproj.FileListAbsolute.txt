@@ -11,3 +11,6 @@ C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFram
 C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.xml
 C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\HtmlAgilityPack.dll
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\dennis\Desktop\web-scraper\WebScraper1\WebScraper1\bin\Debug\HtmlAgilityPack.xml

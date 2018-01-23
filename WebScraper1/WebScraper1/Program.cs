@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebScraper_Classes
 {
@@ -13,11 +14,13 @@ namespace WebScraper_Classes
     {
         static void Main(string[] args)
         {
+            //ArticleDB DB1 = new ArticleDB();
+            //DB1.Source = "Progressive Grocer";
+            //DB1.SourceUrl = "https://www.progressivegrocer.com";
+
             ChromeOptions options = new ChromeOptions();
             ChromeDriver chromeDriver = new ChromeDriver();
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
-
-            //var article = new ArticleDB() {ArticleTitle=" };
 
             // Find article titles
             var titles = chromeDriver.FindElementsByClassName("title");
@@ -37,18 +40,26 @@ namespace WebScraper_Classes
                 Console.WriteLine(title.Text);
             }
 
-            //var urlFinder = "//*[@id='block-homepageprimaryarticles']/div/div[1]/div/div[2]/a";
+            //var urlFinder = chromeDriver.FindElementsByXPath("//*[@class='category']//*[@href]");
+            //*[@id="block-homepageprimaryarticles"]/div/div[1]/div/div[2]/a
+            //a[text()='text_i_want_to_find']/@href
+            //Console.WriteLine(urlFinder);
 
             //foreach (var url in urlFinder)
             //{
-            //    Console.WriteLine(url.ToString());
+            //    Console.WriteLine(url.Text);
             //}
 
             chromeDriver.Quit();
 
-            ArticleDB DB1 = new ArticleDB();
-            DB1.Source = "Progressive Grocer";
-            DB1.SourceUrl = "https://www.progressivegrocer.com";
+           using (var ctx = new ArticleDBContext())
+            {
+                ArticleDB article = new ArticleDB()
+                { ArticleTitle = "Amazon buys WholeFoods" };
+
+                ctx.ArticleDBs.Add(article);
+                ctx.SaveChanges();
+            }
         }
 
         public class ArticleDB
@@ -57,11 +68,14 @@ namespace WebScraper_Classes
             {
 
             }
-
+            
             //public int ArticleID { get; set; }
+            [Key]
+            public int IDKey { get; set; }
             public string ArticleTitle { get; set; }
-            public string Source { get; set; }
-            public string SourceUrl { get; set; }
+            //public string ArticleUrl { get; set; }    
+            //public string Source { get; set; }
+            //public string SourceUrl { get; set; }
         }
 
         public class ArticleDBContext : DbContext
@@ -71,7 +85,7 @@ namespace WebScraper_Classes
 
             }
 
-            public DbSet<ArticleDB> ArticlesDB { get; set; }
+            public DbSet<ArticleDB> ArticleDBs { get; set; }
         }
 
         //public class Navigation
