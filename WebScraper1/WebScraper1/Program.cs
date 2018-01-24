@@ -56,17 +56,6 @@ namespace WebScraper_Classes
                 Console.WriteLine(currentUrl.GetAttribute("href"));
             }
 
-
-            //var urlFinder = chromeDriver.FindElementsByXPath("//*[@class='category']//*[@href]");
-            //*[@id="block-homepageprimaryarticles"]/div/div[1]/div/div[2]/a
-            //a[text()='text_i_want_to_find']/@href
-            //Console.WriteLine(urlFinder);
-
-            //foreach (var url in urlFinder)
-            //{
-            //    Console.WriteLine(url.Text);
-            //}
-
             chromeDriver.Quit();
 
            using (var ctx = new ArticleDBContext())
