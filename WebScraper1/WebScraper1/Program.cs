@@ -23,11 +23,17 @@ namespace WebScraper_Classes
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
 
             // Find article titles
-            var titles = chromeDriver.FindElementsByClassName("title");
+            //var titles = chromeDriver.FindElementsByClassName("title");
+
+            var artTitle = chromeDriver.FindElements(By.XPath("//a/h3"));
+            //var artUrl = artTitle.FindElement(By.XPath(".//parent::a"));
+            var mainTitle = chromeDriver.FindElement(By.XPath("//h1[@class = 'title']/parent::div/parent::div/parent::a"));
+
+
 
             // Count total articles
             Console.WriteLine();
-            var totalTitles = titles.Count;
+            var totalTitles = artTitle.Count;
             Console.WriteLine("There are " + totalTitles + " article titles in total");
 
             Console.WriteLine();
@@ -36,11 +42,18 @@ namespace WebScraper_Classes
 
             List<ArticleDB> articleList = new List<ArticleDB>();
 
+            Console.WriteLine(mainTitle.GetAttribute("href"));
+
             // Print each title found
-            foreach (var title in titles)
+            foreach (var title in artTitle)
             {
                 articleList.Add(new ArticleDB { ArticleTitle = title.Text});
+                
                 Console.WriteLine(title.Text);
+
+                var currentUrl = title.FindElement(By.XPath(".//parent::a"));
+                //var testElement = title.FindElement(By.XPath("/parent::a")).GetAttribute("href");
+                Console.WriteLine(currentUrl.GetAttribute("href"));
             }
 
 
@@ -59,8 +72,9 @@ namespace WebScraper_Classes
            using (var ctx = new ArticleDBContext())
             {
                 ArticleDB article = new ArticleDB()
-                {
-                };
+                { };
+
+                //Source = "Progressive Grocer", SourceUrl = "https://www.progressivegrocer.com"
 
                 foreach (var i in articleList)
                 {
@@ -117,5 +131,3 @@ namespace WebScraper_Classes
         //    }
         //}
  }
-
-
