@@ -48,8 +48,7 @@ namespace WebScraper_Classes
             foreach (var title in artTitle)
             {
                 articleList.Add(new ArticleDB { ArticleTitle = title.Text});
-                
-                Console.WriteLine(title.Text);
+                Console.WriteLine(mainTitle.Text);
 
                 var currentUrl = title.FindElement(By.XPath(".//parent::a"));
                 //var testElement = title.FindElement(By.XPath("/parent::a")).GetAttribute("href");
