@@ -50,6 +50,7 @@ namespace WebScraper_Classes
                 articleList.Add(new ArticleDB { ArticleTitle = title.Text});
                 Console.WriteLine(mainTitle.Text);
 
+                //print the url associated with each title
                 var currentUrl = title.FindElement(By.XPath(".//parent::a"));
                 //var testElement = title.FindElement(By.XPath("/parent::a")).GetAttribute("href");
                 Console.WriteLine(currentUrl.GetAttribute("href"));
