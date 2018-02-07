@@ -42,14 +42,17 @@ namespace WebScraper_Classes
 
             List<ArticleDB> articleList = new List<ArticleDB>();
 
+            //print mainTitle and mainTitle url
+
+            Console.WriteLine(mainTitle.Text);
             Console.WriteLine(mainTitle.GetAttribute("href"));
 
-            // Print each title found
+            
             foreach (var title in artTitle)
             {
                 articleList.Add(new ArticleDB { ArticleTitle = title.Text});
-                Console.WriteLine(mainTitle.Text);
 
+                Console.WriteLine(title.Text);
                 //print the url associated with each title
                 var currentUrl = title.FindElement(By.XPath(".//parent::a"));
                 //var testElement = title.FindElement(By.XPath("/parent::a")).GetAttribute("href");
