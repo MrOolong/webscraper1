@@ -29,8 +29,6 @@ namespace WebScraper_Classes
             //var artUrl = artTitle.FindElement(By.XPath(".//parent::a"));
             var mainTitle = chromeDriver.FindElement(By.XPath("//h1[@class = 'title']/parent::div/parent::div/parent::a"));
 
-
-
             // Count total articles
             Console.WriteLine();
             var totalTitles = artTitle.Count;
@@ -46,25 +44,28 @@ namespace WebScraper_Classes
 
             Console.WriteLine(mainTitle.Text);
             Console.WriteLine(mainTitle.GetAttribute("href"));
-
+            articleList.Add(new ArticleDB { ArticleTitle = mainTitle.Text , ArticleUrl = mainTitle.GetAttribute("href") });
             
             foreach (var title in artTitle)
             {
-                articleList.Add(new ArticleDB { ArticleTitle = title.Text});
+                
 
-                Console.WriteLine(title.Text);
                 //print the url associated with each title
+                Console.WriteLine(title.Text);
+                
                 var currentUrl = title.FindElement(By.XPath(".//parent::a"));
                 //var testElement = title.FindElement(By.XPath("/parent::a")).GetAttribute("href");
                 Console.WriteLine(currentUrl.GetAttribute("href"));
+
+                articleList.Add(new ArticleDB { ArticleTitle = title.Text, ArticleUrl = currentUrl.GetAttribute("href") });
             }
 
             chromeDriver.Quit();
 
            using (var ctx = new ArticleDBContext())
             {
-                ArticleDB article = new ArticleDB()
-                { };
+                //ArticleDB article = new ArticleDB()
+                //{ };
 
                 //Source = "Progressive Grocer", SourceUrl = "https://www.progressivegrocer.com"
 
@@ -92,7 +93,7 @@ namespace WebScraper_Classes
             [Key]
             public int IDKey { get; set; }
             public string ArticleTitle { get; set; }
-            //public string ArticleUrl { get; set; }    
+            public string ArticleUrl { get; set; }    
             //public string Source { get; set; }
             //public string SourceUrl { get; set; }
         }
