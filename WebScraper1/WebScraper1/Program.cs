@@ -34,22 +34,22 @@ namespace WebScraper_Classes
 
             List<ArticleDB> articleList = new List<ArticleDB>();
 
-            // print mainTitle and mainTitle url to console
+            // Print mainTitle and mainTitle url to console
             Console.WriteLine(mainTitle.Text);
             Console.WriteLine(mainTitle.GetAttribute("href"));
-            articleList.Add(new ArticleDB { ArticleTitle = mainTitle.Text , ArticleUrl = mainTitle.GetAttribute("href") , Source = "Progressive Grocer" });
+            articleList.Add(new ArticleDB { ArticleTitle = mainTitle.Text , ArticleUrl = mainTitle.GetAttribute("href")  });
             
 
-            // iterate through the articles displaying them in the console - alternating article title then article url
+            // Iterate through the articles displaying them in the console - alternating article title then article url
             foreach (var title in artTitle)
             {
-                // print the text associated with each title
+                // Print the text associated with each title
                 Console.WriteLine(title.Text);
                 
                 var currentUrl = title.FindElement(By.XPath(".//parent::a"));
                 Console.WriteLine(currentUrl.GetAttribute("href"));
 
-                articleList.Add(new ArticleDB { ArticleTitle = title.Text, ArticleUrl = currentUrl.GetAttribute("href") , Source = "Progressive Grocer" });
+                articleList.Add(new ArticleDB { ArticleTitle = title.Text, ArticleUrl = currentUrl.GetAttribute("href")  });
             }
 
             chromeDriver.Quit();
@@ -80,7 +80,7 @@ namespace WebScraper_Classes
             public int IDKey { get; set; }
             public string ArticleTitle { get; set; }
             public string ArticleUrl { get; set; }    
-            public string Source { get; set; }
+            //public string Source { get; set; }
         }
 
         public class ArticleDBContext : DbContext
