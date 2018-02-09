@@ -14,15 +14,13 @@ namespace WebScraper_Classes
     {
         static void Main(string[] args)
         {
-            ChromeOptions options = new ChromeOptions();
             ChromeDriver chromeDriver = new ChromeDriver();
             chromeDriver.Navigate().GoToUrl("https://www.progressivegrocer.com");
 
             // Find article titles
-            // var titles = chromeDriver.FindElementsByClassName("title");
-
             var artTitle = chromeDriver.FindElements(By.XPath("//a/h3"));
-            // var artUrl = artTitle.FindElement(By.XPath(".//parent::a"));
+
+            // Find article urls
             var mainTitle = chromeDriver.FindElement(By.XPath("//h1[@class = 'title']/parent::div/parent::div/parent::a"));
 
             // Count total articles by specified xpath in artTitle variable
@@ -37,23 +35,21 @@ namespace WebScraper_Classes
             List<ArticleDB> articleList = new List<ArticleDB>();
 
             // print mainTitle and mainTitle url to console
-
             Console.WriteLine(mainTitle.Text);
             Console.WriteLine(mainTitle.GetAttribute("href"));
-            articleList.Add(new ArticleDB { ArticleTitle = mainTitle.Text , ArticleUrl = mainTitle.GetAttribute("href") });
+            articleList.Add(new ArticleDB { ArticleTitle = mainTitle.Text , ArticleUrl = mainTitle.GetAttribute("href") , Source = "Progressive Grocer" });
             
 
             // iterate through the articles displaying them in the console - alternating article title then article url
             foreach (var title in artTitle)
             {
-                //print the url associated with each title
+                // print the text associated with each title
                 Console.WriteLine(title.Text);
                 
                 var currentUrl = title.FindElement(By.XPath(".//parent::a"));
-                //var testElement = title.FindElement(By.XPath("/parent::a")).GetAttribute("href");
                 Console.WriteLine(currentUrl.GetAttribute("href"));
 
-                articleList.Add(new ArticleDB { ArticleTitle = title.Text, ArticleUrl = currentUrl.GetAttribute("href") });
+                articleList.Add(new ArticleDB { ArticleTitle = title.Text, ArticleUrl = currentUrl.GetAttribute("href") , Source = "Progressive Grocer" });
             }
 
             chromeDriver.Quit();
@@ -84,8 +80,7 @@ namespace WebScraper_Classes
             public int IDKey { get; set; }
             public string ArticleTitle { get; set; }
             public string ArticleUrl { get; set; }    
-            //public string Source { get; set; }
-            //public string SourceUrl { get; set; }
+            public string Source { get; set; }
         }
 
         public class ArticleDBContext : DbContext
